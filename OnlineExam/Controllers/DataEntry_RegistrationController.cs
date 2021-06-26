@@ -221,6 +221,151 @@ namespace OnlineExam.Controllers
             return View();
         }
 
+        public async Task<ActionResult> DataEntryQuestionAnswer(int? id)
+        {
+            if(id == null)
+            {
+                var pro = new SelectList(db.Programmes.Where(p => p.IsDeleted == 0), "Id", "Name");
+                ViewBag.PgmId = pro;
+                var cou = new SelectList(db.Courses.Where(c => c.IsDeleted == 0), "Id", "Name");
+                ViewBag.CourseId = cou;
+                var subj = new SelectList(db.Subjects.Where(s => s.IsDeleted == 0), "Id", "Name");
+                ViewBag.SubjectId = subj;
 
+                var sub = new SelectList(Enumerable.Empty<SelectListItem>());
+                ViewBag.SubPgmId = sub;
+                ViewBag.ChapterId = sub;
+
+            }
+            else
+            { 
+                var data = await db.DataEntry_QuestionBank.Where(d => d.Id == id).FirstOrDefaultAsync();
+                DtpQAViewModel dtpQA = new DtpQAViewModel()
+                {
+                    Id = data.Id,
+                    Questions = data.Questions,
+                    Option1 = data.Option1,
+                    Option2 = data.Option2,
+                    Option3 = data.Option3,
+                    Option4 = data.Option4,
+                    PrevQnYear = data.PrevQnYear,
+                    CorrectAns = data.CorrectAns,
+                    Mark = data.Mark,
+                    PgmId = data.PgmId,
+                    SubPgmId = data.SubPgmId,
+                    CourseId = data.CourseId,
+                    SubjectId = data.SubjectId,
+                    ChapterId = data.ChapterId
+            };
+                var pro = new SelectList(db.Programmes.Where(p => p.IsDeleted == 0), "Id", "Name",data.PgmId);
+                ViewBag.PgmId = pro;
+                var sub = new SelectList(db.SubPrograms.Where(p => p.IsDeleted == 0), "Id", "Name", data.SubPgmId);
+                ViewBag.SubPgmId = sub;
+                var cou = new SelectList(db.Courses.Where(c => c.IsDeleted == 0), "Id", "Name", data.CourseId);
+                ViewBag.CourseId = cou;
+                var subj = new SelectList(db.Subjects.Where(s => s.IsDeleted == 0), "Id", "Name", data.SubjectId);
+                ViewBag.SubjectId = subj;
+                var chap = new SelectList(db.Chapters.Where(p => p.IsDeleted == 0), "Id", "Name", data.ChapterId);
+                ViewBag.ChapterId = chap;
+
+                return View(dtpQA);
+            }
+            return View();
+
+        }
+        [HttpGet]
+        public JsonResult SubProgram(int ID)
+        {
+            var sub = new SelectList(db.SubPrograms.Where(s => s.PgmId == ID), "Id", "Name");
+            return Json(sub, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult Chapters(int ID)
+        {
+            var chap = new SelectList(db.Chapters.Where(c => c.SubId == ID), "Id", "Name");
+            return Json(chap, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> DataEntryQuestionAnswer(DtpQAViewModel dtpQAView)
+        {
+            if (dtpQAView.Id != null)
+            {
+                DataEntry_QuestionBank data = db.DataEntry_QuestionBank.Find(dtpQAView.Id);
+                if (data != null)
+                {
+                    if (ModelState.IsValid)
+                    {
+                        data.Questions = dtpQAView.Questions;
+                        data.Option1 = dtpQAView.Option1;
+                        data.Option2 = dtpQAView.Option2;
+                        data.Option3 = dtpQAView.Option3;
+                        data.Option4 = dtpQAView.Option4;
+                        data.PrevQnYear = dtpQAView.PrevQnYear;
+                        data.CorrectAns = dtpQAView.CorrectAns;
+                        data.Mark = dtpQAView.Mark;
+                        data.ModifiedDateTime = DateTime.Now;
+                        data.ModifiedBy = 1;
+                        data.PgmId = dtpQAView.PgmId;
+                        data.SubPgmId = dtpQAView.SubPgmId;
+                        data.CourseId = dtpQAView.CourseId;
+                        data.SubjectId = dtpQAView.SubjectId;
+                        data.ChapterId = dtpQAView.ChapterId;
+                        db.Entry(data).State = EntityState.Modified;
+                        await db.SaveChangesAsync();
+                        return RedirectToAction("DataEntryQuestAnsList");
+                    }
+
+                }
+                return View(dtpQAView);
+
+            }
+            else
+            {
+                DataEntry_QuestionBank data = new DataEntry_QuestionBank();
+                data.Questions = dtpQAView.Questions;
+                data.Option1 = dtpQAView.Option1;
+                data.Option2 = dtpQAView.Option2;
+                data.Option3 = dtpQAView.Option3;
+                data.Option4 = dtpQAView.Option4;
+                data.PrevQnYear = dtpQAView.PrevQnYear;
+                data.CorrectAns = dtpQAView.CorrectAns;
+                data.Mark = dtpQAView.Mark;
+                data.CreatedDateTime = DateTime.Now;
+                data.ModifiedDateTime = DateTime.Now;
+                data.DeletedDateTime = DateTime.Now;
+                data.PgmId = dtpQAView.PgmId;
+                data.SubPgmId = dtpQAView.SubPgmId;
+                data.CourseId = dtpQAView.CourseId;
+                data.SubjectId = dtpQAView.SubjectId;
+                data.ChapterId = dtpQAView.ChapterId;
+                db.DataEntry_QuestionBank.Add(data);
+                await db.SaveChangesAsync();
+                return RedirectToAction("DataEntryQuestAnsList");
+            }
+          
+        }
+
+        public async Task<ActionResult> DataEntryQuestAnsList()
+        {
+
+            return View(await db.DataEntry_QuestionBank.Where(p => p.IsDeleted == 0).ToListAsync());
+        }
+
+         public ActionResult DeleteDataEntryQuestionAnswer(int? id)
+        {
+            if(id!=null)
+            {
+                DataEntry_QuestionBank dataEntry = db.DataEntry_QuestionBank.Find(id);
+                dataEntry.IsDeleted = 1;
+                dataEntry.DeletedDateTime = DateTime.Now;
+                db.Entry(dataEntry).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("DataEntryQuestAnsList");
+            }
+            return View();
+        }
     }
 }

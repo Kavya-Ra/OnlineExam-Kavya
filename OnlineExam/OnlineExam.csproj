@@ -142,6 +142,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DataEntry_RegistrationController.cs" />
+    <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Teachers_RegistrationController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -160,13 +161,16 @@
     <Compile Include="DbContext\DataEntry_Registration.cs">
       <DependentUpon>OnlineExam.tt</DependentUpon>
     </Compile>
+    <Compile Include="DbContext\Exam.cs">
+      <DependentUpon>OnlineExam.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\Exam_QnTable.cs">
+      <DependentUpon>OnlineExam.tt</DependentUpon>
+    </Compile>
     <Compile Include="DbContext\GETCHAPTERBYSUB_Result.cs">
       <DependentUpon>OnlineExam.tt</DependentUpon>
     </Compile>
     <Compile Include="DbContext\GETPRGRMBYSUBPRGM_Result.cs">
-      <DependentUpon>OnlineExam.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DbContext\GETUSERROLEBYID_Result.cs">
       <DependentUpon>OnlineExam.tt</DependentUpon>
     </Compile>
     <Compile Include="DbContext\Group.cs">
@@ -194,6 +198,9 @@
       <DependentUpon>OnlineExam.edmx</DependentUpon>
     </Compile>
     <Compile Include="DbContext\Programme.cs">
+      <DependentUpon>OnlineExam.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\Role.cs">
       <DependentUpon>OnlineExam.tt</DependentUpon>
     </Compile>
     <Compile Include="DbContext\Student_AcademicPerformance.cs">
@@ -226,14 +233,13 @@
     <Compile Include="DbContext\User.cs">
       <DependentUpon>OnlineExam.tt</DependentUpon>
     </Compile>
-    <Compile Include="DbContext\UserRole.cs">
-      <DependentUpon>OnlineExam.tt</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\DtpQAViewModel.cs" />
     <Compile Include="ViewModel\DtpViewModel.cs" />
+    <Compile Include="ViewModel\GroupViewModel.cs" />
     <Compile Include="ViewModel\TeacherRegViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -243,8 +249,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="DbContext\OnlineExam.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>OnlineExam.Context.cs</LastGenOutput>
       <DependentUpon>OnlineExam.edmx</DependentUpon>
+      <LastGenOutput>OnlineExam.Context.cs</LastGenOutput>
     </Content>
     <Content Include="DbContext\OnlineExam.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -306,6 +312,14 @@
     <Content Include="Views\DataEntry_Registration\Index.cshtml" />
     <Content Include="Views\DataEntry_Registration\DataEntryRegistration.cshtml" />
     <Content Include="Views\Teachers_Registration\TeacherRegistration.cshtml" />
+    <Content Include="Views\DataEntry_Registration\DataEntryQuestionAnswer.cshtml" />
+    <Content Include="Views\DataEntry_Registration\DataEntryQuestAnsList.cshtml" />
+    <Content Include="Views\Groups\Create.cshtml" />
+    <Content Include="Views\Groups\Delete.cshtml" />
+    <Content Include="Views\Groups\Details.cshtml" />
+    <Content Include="Views\Groups\Edit.cshtml" />
+    <Content Include="Views\Groups\Index.cshtml" />
+    <Content Include="Views\Groups\Group.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

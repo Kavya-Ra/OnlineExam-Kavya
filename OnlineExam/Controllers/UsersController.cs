@@ -17,7 +17,7 @@ namespace OnlineExam.Controllers
         // GET: Users
         public ActionResult Index()
         {
-            var users = db.Users.Include(u => u.UserRole);
+            var users = db.Users.Include(u => u.Roles);
             return View(users.ToList());
         }
 
@@ -39,7 +39,7 @@ namespace OnlineExam.Controllers
         // GET: Users/Create
         public ActionResult Create()
         {
-            ViewBag.RoleId = new SelectList(db.UserRoles, "RoleId", "RoleName");
+            ViewBag.RoleId = new SelectList(db.Roles, "RoleId", "RoleName");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace OnlineExam.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.RoleId = new SelectList(db.UserRoles, "RoleId", "RoleName", user.RoleId);
+            ViewBag.RoleId = new SelectList(db.Roles, "RoleId", "RoleName", user.RoleId);
             return View(user);
         }
 
@@ -73,7 +73,7 @@ namespace OnlineExam.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.RoleId = new SelectList(db.UserRoles, "RoleId", "RoleName", user.RoleId);
+            ViewBag.RoleId = new SelectList(db.Roles, "RoleId", "RoleName", user.RoleId);
             return View(user);
         }
 
@@ -90,7 +90,7 @@ namespace OnlineExam.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.RoleId = new SelectList(db.UserRoles, "RoleId", "RoleName", user.RoleId);
+            ViewBag.RoleId = new SelectList(db.Roles, "RoleId", "RoleName", user.RoleId);
             return View(user);
         }
 

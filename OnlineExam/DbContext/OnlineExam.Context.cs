@@ -32,10 +32,13 @@ namespace OnlineExam.DbContext
         public virtual DbSet<Cours> Courses { get; set; }
         public virtual DbSet<DataEntry_QuestionBank> DataEntry_QuestionBank { get; set; }
         public virtual DbSet<DataEntry_Registration> DataEntry_Registration { get; set; }
+        public virtual DbSet<Exam> Exams { get; set; }
+        public virtual DbSet<Exam_QnTable> Exam_QnTable { get; set; }
         public virtual DbSet<Group> Groups { get; set; }
         public virtual DbSet<Group_StudentTable> Group_StudentTable { get; set; }
         public virtual DbSet<Group_Teacher> Group_Teacher { get; set; }
         public virtual DbSet<Programme> Programmes { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Student_AcademicPerformance> Student_AcademicPerformance { get; set; }
         public virtual DbSet<Student_HomeCountryDetails> Student_HomeCountryDetails { get; set; }
         public virtual DbSet<Student_Parent> Student_Parent { get; set; }
@@ -45,7 +48,6 @@ namespace OnlineExam.DbContext
         public virtual DbSet<SubProgram> SubPrograms { get; set; }
         public virtual DbSet<Teachers_QuestionBank> Teachers_QuestionBank { get; set; }
         public virtual DbSet<Teachers_Registration> Teachers_Registration { get; set; }
-        public virtual DbSet<UserRole> UserRoles { get; set; }
         public virtual DbSet<User> Users { get; set; }
     
         public virtual ObjectResult<GETCHAPTERBYSUB_Result> GETCHAPTERBYSUB()
@@ -63,11 +65,11 @@ namespace OnlineExam.DbContext
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GETPRGRMBYSUBPRGM_Result>("GETPRGRMBYSUBPRGM");
         }
     
-        public virtual ObjectResult<GETUSERROLEBYID_Result> GETUSERROLEBYID()
+        public virtual int GETUSERROLEBYID()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GETUSERROLEBYID_Result>("GETUSERROLEBYID");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GETUSERROLEBYID");
         }
 
-        public System.Data.Entity.DbSet<OnlineExam.ViewModel.TeacherRegViewModel> TeacherRegViewModels { get; set; }
+        public System.Data.Entity.DbSet<OnlineExam.ViewModel.GroupViewModel> GroupViewModels { get; set; }
     }
 }

@@ -18,12 +18,8 @@ namespace OnlineExam.DbContext
         public User()
         {
             this.Group_Teacher = new HashSet<Group_Teacher>();
-            this.Student_AcademicPerformance = new HashSet<Student_AcademicPerformance>();
-            this.Student_HomeCountryDetails = new HashSet<Student_HomeCountryDetails>();
-            this.Student_Parent = new HashSet<Student_Parent>();
-            this.Student_PreviousEntrance = new HashSet<Student_PreviousEntrance>();
-            this.Student_Registration = new HashSet<Student_Registration>();
             this.Teachers_QuestionBank = new HashSet<Teachers_QuestionBank>();
+            this.Roles = new HashSet<Role>();
         }
     
         public int Id { get; set; }
@@ -42,21 +38,13 @@ namespace OnlineExam.DbContext
         public string UniqueID { get; set; }
         public string MobileNo { get; set; }
         public string ActivationCode { get; set; }
+        public int EmailVerify { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Group_Teacher> Group_Teacher { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Student_AcademicPerformance> Student_AcademicPerformance { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Student_HomeCountryDetails> Student_HomeCountryDetails { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Student_Parent> Student_Parent { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Student_PreviousEntrance> Student_PreviousEntrance { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Student_Registration> Student_Registration { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Teachers_QuestionBank> Teachers_QuestionBank { get; set; }
-        public virtual UserRole UserRole { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Role> Roles { get; set; }
     }
 }
