@@ -145,13 +145,17 @@ namespace OnlineExam.Controllers
                 ViewBag.ClassId = cou;
                 var subj = new SelectList(db.Subjects.Where(s => s.IsDeleted == 0), "Id", "Name");
                 ViewBag.SubjectId = subj;
-
+                var teach = new SelectList(db.Users.Where(p => p.IsDeleted == 0 && p.RoleId == 2), "Id", "FirstName");
+                ViewBag.TeacherId = teach;
+                var stud = new SelectList(db.Users.Where(p => p.IsDeleted == 0 && p.RoleId == 3), "Id", "FirstName");
+                ViewBag.StudentId = stud;
                 var sub = new SelectList(Enumerable.Empty<SelectListItem>());
                 ViewBag.SubPgmId = sub;
                 ViewBag.CourseId = sub;
             }
             else
             {
+
                 var data = await db.Groups.Where(d => d.Id == id).FirstOrDefaultAsync();
                 GroupViewModel groupView = new GroupViewModel()
                 {
@@ -174,6 +178,20 @@ namespace OnlineExam.Controllers
                 var chap = new SelectList(db.Classes.Where(p => p.IsDeleted == 0), "Id", "Name", data.ClassId);
                 ViewBag.ClassId = chap;
 
+                List<Group_Teacher> dteach =  db.Group_Teacher.Where(d => d.GroupId == id).ToList();
+              
+                foreach (var item in dteach)
+                {
+                    var teach = new SelectList(db.Users.Where(p => p.IsDeleted == 0 && p.RoleId == 2), "Id", "FirstName", item.TeacherId).ToList();
+                    ViewBag.TeacherId = teach;
+                }
+
+                List<Group_StudentTable> datastud = db.Group_StudentTable.Where(d => d.GroupId == id).ToList();
+                foreach (var item in datastud)
+                {
+                    var stud = new SelectList(db.Users.Where(p => p.IsDeleted == 0 && p.RoleId == 3), "Id", "FirstName", item.StudentId).ToList();
+                    ViewBag.StudentId = stud;
+                }
                 return View(groupView);
 
             }
@@ -216,28 +234,74 @@ namespace OnlineExam.Controllers
                         data.ModifiedBy = 1;
                         db.Entry(data).State = EntityState.Modified;
                         await db.SaveChangesAsync();
-                        return RedirectToAction("Index");
-                    }
 
+                        int gid = data.Id;
+                        int[] tData = groupView.TeacherId;
+
+                        foreach (var item in tData)
+                        {
+                            Group_Teacher teacher = new Group_Teacher();
+                            teacher.TeacherId = item;
+                            teacher.GroupId = gid;
+                            db.Entry(teacher).State = EntityState.Modified;
+                        }
+                        db.SaveChanges();
+
+                        int[] sData = groupView.StudentId;
+                        foreach (var items in sData)
+                        {
+                            Group_StudentTable studentTable = new Group_StudentTable();
+                            studentTable.StudentId = items;
+                            studentTable.GroupId = gid;
+                            db.Entry(studentTable).State = EntityState.Modified;
+                        }
+                        db.SaveChanges();
+                    }
+                    return RedirectToAction("Index");
                 }
                 return View(groupView);
 
             }
             else
             {
-                Group group = new Group();
-                group.GroupName = groupView.GroupName;
-                group.PgmId = groupView.PgmId;
-                group.SubPgmId = groupView.SubPgmId;
-                group.ClassId = groupView.ClassId;
-                group.CourseId = groupView.CourseId;
-                group.SubjectId = groupView.SubjectId;
-                group.CreatedDateTime = DateTime.Now;
-                group.ModifiedDateTime = DateTime.Now;
-                group.DeletedDateTime = DateTime.Now;
-                db.Groups.Add(group);
-                await db.SaveChangesAsync();
-                int id = group.Id;
+                if (ModelState.IsValid)
+                {
+                    Group group = new Group();
+                    group.GroupName = groupView.GroupName;
+                    group.PgmId = groupView.PgmId;
+                    group.SubPgmId = groupView.SubPgmId;
+                    group.ClassId = groupView.ClassId;
+                    group.CourseId = groupView.CourseId;
+                    group.SubjectId = groupView.SubjectId;
+                    group.CreatedDateTime = DateTime.Now;
+                    group.ModifiedDateTime = DateTime.Now;
+                    group.DeletedDateTime = DateTime.Now;
+                    db.Groups.Add(group);
+                    await db.SaveChangesAsync();
+
+                    int gid = group.Id;
+                    int[] tData = groupView.TeacherId;
+                    
+                    foreach (var item in tData)
+                    {
+                        Group_Teacher teacher = new Group_Teacher();
+                        teacher.TeacherId = item;
+                        teacher.GroupId = gid;
+                        db.Group_Teacher.Add(teacher);
+                    }
+                    db.SaveChanges();
+
+                    int[] sData = groupView.StudentId;
+                    foreach (var items in sData)
+                    {
+                        Group_StudentTable studentTable = new Group_StudentTable();
+                        studentTable.StudentId = items;
+                        studentTable.GroupId = gid;
+                        db.Group_StudentTable.Add(studentTable);
+                    }
+                    db.SaveChanges();
+
+                }
                 return RedirectToAction("Index");
             }
           

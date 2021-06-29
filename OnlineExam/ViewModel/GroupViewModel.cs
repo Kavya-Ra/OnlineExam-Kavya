@@ -31,11 +31,20 @@ namespace OnlineExam.ViewModel
         [Display(Name = "Class")]
         public int ClassId { get; set; }
 
+        [Required]
+        [Display(Name = "Teacher")]
+        public int[] TeacherId { get; set; }
+
+        [Required]
+        [Display(Name = "Student")]
+        public int[] StudentId { get; set; }
+
         public ICollection<Programme> Programmes { get; set; }
         public ICollection<SubProgram> SubPrograms { get; set; }
         public ICollection<Subject> Subjects { get; set; }
         public ICollection<Class> Classes { get; set; }
         public ICollection<Cours> Course { get; set; }
+        public IEnumerable<User> Users { get; set; }
 
 
     }

@@ -23,10 +23,10 @@ namespace OnlineExam.ViewModel
         public string WhatsApp { get; set; }
         [Required]
         [Display(Name = "PrimarySubject")]
-        public int PrimarySubject { get; set; }
+        public string PrimarySubject { get; set; }
         [Required]
         [Display(Name = "SecondarySubject")]
-        public int SecondarySubject { get; set; }
+        public string SecondarySubject { get; set; }
         [Required]
         [Display(Name = "Location")]
         public string Location { get; set; }

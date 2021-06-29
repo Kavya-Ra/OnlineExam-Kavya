@@ -69,7 +69,10 @@ namespace OnlineExam.DbContext
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GETUSERROLEBYID");
         }
-
-        public System.Data.Entity.DbSet<OnlineExam.ViewModel.GroupViewModel> GroupViewModels { get; set; }
+    
+        public virtual ObjectResult<StudentAllDetailsByRegId_Result> StudentAllDetailsByRegId()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<StudentAllDetailsByRegId_Result>("StudentAllDetailsByRegId");
+        }
     }
 }

@@ -144,6 +144,7 @@
     <Compile Include="Controllers\DataEntry_RegistrationController.cs" />
     <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Student_AcademicPerformanceController.cs" />
     <Compile Include="Controllers\Teachers_RegistrationController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DbContext\Chapter.cs">
@@ -203,6 +204,9 @@
     <Compile Include="DbContext\Role.cs">
       <DependentUpon>OnlineExam.tt</DependentUpon>
     </Compile>
+    <Compile Include="DbContext\StudentAllDetailsByRegId_Result.cs">
+      <DependentUpon>OnlineExam.tt</DependentUpon>
+    </Compile>
     <Compile Include="DbContext\Student_AcademicPerformance.cs">
       <DependentUpon>OnlineExam.tt</DependentUpon>
     </Compile>
@@ -247,6 +251,11 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\chosen-sprite%402x.png" />
+    <Content Include="Content\chosen-sprite.png" />
+    <Content Include="Content\chosen.css" />
+    <Content Include="Content\Chosen\chosen-sprite.png" />
+    <Content Include="Content\Chosen\chosen.min.css" />
     <Content Include="DbContext\OnlineExam.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>OnlineExam.edmx</DependentUpon>
@@ -271,6 +280,7 @@
       <DependentUpon>OnlineExam.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\chosen.jquery.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
