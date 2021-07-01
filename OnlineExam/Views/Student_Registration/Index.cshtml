@@ -1,0 +1,213 @@
+﻿@model IEnumerable<OnlineExam.DbContext.Student_Registration>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RegId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExamAttendingYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PreferredDay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplnDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AcademicYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdmissionTestDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PreferredTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WhatsappNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DOB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Religion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Caste)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Community)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BloodGroup)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nationalty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PresentAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Area)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.District)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pincode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuickContNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuickWhatsApp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PgmId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClassId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubPgmId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExamAttendingYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreferredDay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApplnDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AcademicYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdmissionTestDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreferredTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WhatsappNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DOB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Religion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Caste)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Community)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BloodGroup)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nationalty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PresentAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Area)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.State)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.District)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pincode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuickContNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Photo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuickWhatsApp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PgmId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClassId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubPgmId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsDeleted)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "AllStudentRegistration", new { RegId = item.RegId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

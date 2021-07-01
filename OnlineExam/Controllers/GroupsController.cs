@@ -177,20 +177,25 @@ namespace OnlineExam.Controllers
                 ViewBag.SubjectId = subj;
                 var chap = new SelectList(db.Classes.Where(p => p.IsDeleted == 0), "Id", "Name", data.ClassId);
                 ViewBag.ClassId = chap;
-
-                List<Group_Teacher> dteach =  db.Group_Teacher.Where(d => d.GroupId == id).ToList();
               
+               
+                List<Group_Teacher> dteach =  db.Group_Teacher.Where(d => d.GroupId == id).ToList();
+
+            
                 foreach (var item in dteach)
                 {
-                    var teach = new SelectList(db.Users.Where(p => p.IsDeleted == 0 && p.RoleId == 2), "Id", "FirstName", item.TeacherId).ToList();
+                    
+                    var teach = new SelectList(db.Users.Where(p => p.IsDeleted == 0 && p.RoleId == 2), "Id", "FirstName",item.TeacherId).ToList();
+                    //groupView.TeacherId = teach;
                     ViewBag.TeacherId = teach;
                 }
 
                 List<Group_StudentTable> datastud = db.Group_StudentTable.Where(d => d.GroupId == id).ToList();
                 foreach (var item in datastud)
                 {
-                    var stud = new SelectList(db.Users.Where(p => p.IsDeleted == 0 && p.RoleId == 3), "Id", "FirstName", item.StudentId).ToList();
+                    var stud = new SelectList(db.Users.Where(p => p.IsDeleted == 0 && p.RoleId == 3), "Id", "FirstName").ToList();
                     ViewBag.StudentId = stud;
+
                 }
                 return View(groupView);
 

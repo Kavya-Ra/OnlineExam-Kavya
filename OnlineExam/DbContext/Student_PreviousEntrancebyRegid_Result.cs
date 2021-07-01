@@ -10,20 +10,19 @@
 namespace OnlineExam.DbContext
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Cours
+    public partial class Student_PreviousEntrancebyRegid_Result
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public int CreatedBy { get; set; }
+        public string RegId { get; set; }
+        public string PrevEntranceExamName { get; set; }
+        public string RollNo { get; set; }
+        public string AttemptedYear { get; set; }
+        public string Mark { get; set; }
+        public string Rank { get; set; }
+        public string NoOfAttempts { get; set; }
         public System.DateTime CreatedDate { get; set; }
         public int IsDeleted { get; set; }
-        public System.DateTime DeletedDate { get; set; }
-        public int ModifiedBy { get; set; }
-        public System.DateTime ModifiedTime { get; set; }
-        public int ClassId { get; set; }
-    
-        public virtual Class Class { get; set; }
+        public int IsRegistered { get; set; }
     }
 }

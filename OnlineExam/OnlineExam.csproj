@@ -45,11 +45,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -145,8 +151,12 @@
     <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Student_AcademicPerformanceController.cs" />
+    <Compile Include="Controllers\Student_RegistrationController.cs" />
     <Compile Include="Controllers\Teachers_RegistrationController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="DbContext\AllStudentRegistrationDetails_Result.cs">
+      <DependentUpon>OnlineExam.tt</DependentUpon>
+    </Compile>
     <Compile Include="DbContext\Chapter.cs">
       <DependentUpon>OnlineExam.tt</DependentUpon>
     </Compile>
@@ -168,10 +178,19 @@
     <Compile Include="DbContext\Exam_QnTable.cs">
       <DependentUpon>OnlineExam.tt</DependentUpon>
     </Compile>
+    <Compile Include="DbContext\GetAllStudentRegistrationByRegId_Result.cs">
+      <DependentUpon>OnlineExam.tt</DependentUpon>
+    </Compile>
     <Compile Include="DbContext\GETCHAPTERBYSUB_Result.cs">
       <DependentUpon>OnlineExam.tt</DependentUpon>
     </Compile>
     <Compile Include="DbContext\GETPRGRMBYSUBPRGM_Result.cs">
+      <DependentUpon>OnlineExam.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\GetStudentGroupbyGroupId_Result.cs">
+      <DependentUpon>OnlineExam.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\GetTeacherGroupbyGroupId_Result.cs">
       <DependentUpon>OnlineExam.tt</DependentUpon>
     </Compile>
     <Compile Include="DbContext\Group.cs">
@@ -210,6 +229,9 @@
     <Compile Include="DbContext\Student_AcademicPerformance.cs">
       <DependentUpon>OnlineExam.tt</DependentUpon>
     </Compile>
+    <Compile Include="DbContext\Student_AcademicPerformancebyRegid_Result.cs">
+      <DependentUpon>OnlineExam.tt</DependentUpon>
+    </Compile>
     <Compile Include="DbContext\Student_HomeCountryDetails.cs">
       <DependentUpon>OnlineExam.tt</DependentUpon>
     </Compile>
@@ -217,6 +239,9 @@
       <DependentUpon>OnlineExam.tt</DependentUpon>
     </Compile>
     <Compile Include="DbContext\Student_PreviousEntrance.cs">
+      <DependentUpon>OnlineExam.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\Student_PreviousEntrancebyRegid_Result.cs">
       <DependentUpon>OnlineExam.tt</DependentUpon>
     </Compile>
     <Compile Include="DbContext\Student_Registration.cs">
@@ -240,10 +265,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="PdfReport\StudentReport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\DtpQAViewModel.cs" />
     <Compile Include="ViewModel\DtpViewModel.cs" />
     <Compile Include="ViewModel\GroupViewModel.cs" />
+    <Compile Include="ViewModel\StudentRegViewModel.cs" />
     <Compile Include="ViewModel\TeacherRegViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -330,6 +357,17 @@
     <Content Include="Views\Groups\Edit.cshtml" />
     <Content Include="Views\Groups\Index.cshtml" />
     <Content Include="Views\Groups\Group.cshtml" />
+    <Content Include="Views\StudentAllDetailsByRegId_Result\Create.cshtml" />
+    <Content Include="Views\StudentAllDetailsByRegId_Result\Delete.cshtml" />
+    <Content Include="Views\StudentAllDetailsByRegId_Result\Details.cshtml" />
+    <Content Include="Views\StudentAllDetailsByRegId_Result\Edit.cshtml" />
+    <Content Include="Views\StudentAllDetailsByRegId_Result\Index.cshtml" />
+    <Content Include="Views\Student_Registration\Create.cshtml" />
+    <Content Include="Views\Student_Registration\Delete.cshtml" />
+    <Content Include="Views\Student_Registration\Details.cshtml" />
+    <Content Include="Views\Student_Registration\Edit.cshtml" />
+    <Content Include="Views\Student_Registration\Index.cshtml" />
+    <Content Include="Views\Student_Registration\AllStudentRegistration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

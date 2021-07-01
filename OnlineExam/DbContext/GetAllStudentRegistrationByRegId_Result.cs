@@ -11,7 +11,7 @@ namespace OnlineExam.DbContext
 {
     using System;
     
-    public partial class StudentAllDetailsByRegId_Result
+    public partial class GetAllStudentRegistrationByRegId_Result
     {
         public int Id { get; set; }
         public string RegId { get; set; }

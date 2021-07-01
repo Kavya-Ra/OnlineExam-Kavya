@@ -24,6 +24,7 @@ namespace OnlineExam.Controllers
         }
 
         // GET: api/Student_AcademicPerformance/5
+        [Route("api/Student_AcademicPerformance/GetStudent_AcademicPerformance/{id:int}")]
         [ResponseType(typeof(Student_AcademicPerformance))]
         public IHttpActionResult GetStudent_AcademicPerformance(int id)
         {
@@ -160,5 +161,27 @@ namespace OnlineExam.Controllers
         }
 
 
+        // GET: api/Student_PreviousEntrance/5
+        [Route("api/Student_AcademicPerformance/GetStudent_PreviousEntrance/{id:int}")]
+        [ResponseType(typeof(Student_PreviousEntrance))]
+        public IHttpActionResult GetStudent_PreviousEntrance(int id)
+        {
+            Student_PreviousEntrance student_PreviousEntrance = db.Student_PreviousEntrance.Find(id);
+            if (student_PreviousEntrance == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(student_PreviousEntrance);
+        }
+
+      
+        [Route("api/Student_AcademicPerformance/GetStudentAllDetails")]
+        public IHttpActionResult GetStudentAllDetails()
+        {
+            var materializedUser = db.StudentAllDetailsByRegId();
+            return Ok(materializedUser);
+           
+        }
     }
 }
