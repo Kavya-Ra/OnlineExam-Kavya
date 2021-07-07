@@ -129,15 +129,13 @@ namespace OnlineExam.Controllers
         public ActionResult AllStudentRegistration(string RegId)
         {
            
-            var data = db.GetAllStudentRegistrationByRegId(RegId);
+          //  var data = db.GetAllStudentRegistrationByRegId(RegId);
 
-            StudentRegViewModel Dataview = new StudentRegViewModel()
-            {
+            StudentReport student = new StudentReport();
+            byte[] abytes = student.PrepareReport(RegId);
+            return File(abytes, "application/pdf");
 
-
-            };
-
-            return View(Dataview);
+          
         }
 
 

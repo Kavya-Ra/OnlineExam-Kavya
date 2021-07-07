@@ -204,7 +204,10 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "AllStudentRegistration", new { RegId = item.RegId }) |
+            
+            <a href="@Url.Action("AllStudentRegistration", "Student_Registration", new { RegId = item.RegId })"
+               target="_blank"> Details</a>
+            |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>
