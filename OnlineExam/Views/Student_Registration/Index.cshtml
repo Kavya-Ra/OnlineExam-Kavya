@@ -203,12 +203,11 @@
             @Html.DisplayFor(modelItem => item.IsDeleted)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            
-            <a href="@Url.Action("AllStudentRegistration", "Student_Registration", new { RegId = item.RegId })"
-               target="_blank"> Details</a>
-            |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @*<a href="@Url.Action("AllStudentRegistration", "Student_Registration", new { RegId = item.RegId })"
+               target="_blank"> Details</a>*@
+            @Html.ActionLink("Details", "AllStudentRegistration", new { RegId = item.RegId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
         </td>
     </tr>
 }

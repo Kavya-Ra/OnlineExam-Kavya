@@ -143,8 +143,8 @@ namespace OnlineExam.Controllers
                 DtpViewModel dtpView = new DtpViewModel()
                 {
                     Id = data.Id,
-                    Name = data.Name,
-                    FirmName = data.FirmName,
+                    Name = data.FirstName,
+                    FirmName = data.LastName,
                     Mobile = data.Mobile,
                     WhatsApp = data.WhatsApp,
                     Email = data.Email,
@@ -169,8 +169,8 @@ namespace OnlineExam.Controllers
                 {
                     if (ModelState.IsValid)
                     {
-                        data.Name = dtpViewModel.Name;
-                        data.FirmName = dtpViewModel.FirmName;
+                        data.FirstName = dtpViewModel.Name;
+                        data.LastName = dtpViewModel.FirmName;
                         data.Email = dtpViewModel.Email;
                         data.Location = dtpViewModel.Location;
                         data.Place = dtpViewModel.Place;
@@ -189,8 +189,8 @@ namespace OnlineExam.Controllers
             else
             {
                 DataEntry_Registration dataEntry_Registration = new DataEntry_Registration();
-                dataEntry_Registration.Name = dtpViewModel.Name;
-                dataEntry_Registration.FirmName = dtpViewModel.FirmName;
+                dataEntry_Registration.FirstName = dtpViewModel.Name;
+                dataEntry_Registration.LastName = dtpViewModel.FirmName;
                 dataEntry_Registration.Email = dtpViewModel.Email;
                 dataEntry_Registration.Location = dtpViewModel.Location;
                 dataEntry_Registration.Place = dtpViewModel.Place;

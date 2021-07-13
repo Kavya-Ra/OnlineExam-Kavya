@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
 using OnlineExam.DbContext;
-using OnlineExam.PdfReport;
 using OnlineExam.ViewModel;
 
 namespace OnlineExam.Controllers
@@ -128,16 +131,24 @@ namespace OnlineExam.Controllers
 
         public ActionResult AllStudentRegistration(string RegId)
         {
-           
-          //  var data = db.GetAllStudentRegistrationByRegId(RegId);
 
-            StudentReport student = new StudentReport();
-            byte[] abytes = student.PrepareReport(RegId);
-            return File(abytes, "application/pdf");
+            var data = db.GetAllStudentRegistrationByRegId(RegId).FirstOrDefault();
+               var data1 = db.Student_AcademicPerformancebyRegid(RegId).ToList();
+               var data2 = db.Student_PreviousEntrancebyRegid(RegId).ToList();
 
-          
+
+            StudentRegPdfViewModel student = new StudentRegPdfViewModel()
+            {
+                GetAllStudentRegistrationByRegId = data,
+                Student_AcademicPerformancebyRegid = data1,
+                Student_PreviousEntrancebyRegid = data2
+               
+            };
+
+            return View(student);
+
         }
-
+    
 
     }
 }

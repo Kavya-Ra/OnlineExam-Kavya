@@ -1,435 +1,708 @@
-﻿@model IEnumerable<OnlineExam.ViewModel.StudentRegViewModel>
+﻿@model OnlineExam.ViewModel.StudentRegPdfViewModel
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RegId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ExamAttendingYear)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PreferredDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ApplnDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AcademicYear)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AdmissionTestDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StudentName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PreferredTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.WhatsappNo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DOB)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Gender)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Religion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Caste)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Community)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BloodGroup)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nationalty)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PresentAddress)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Area)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Location)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.State)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.District)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Pincode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.QuickContNo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Photo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.QuickWhatsApp)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PgmId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClassId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CourseId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SubPgmId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsDeleted)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Pid)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PRegId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PCreatedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PIsDeleted)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FrName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FrOcc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FrMobNo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FrMailid)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FrDistrict)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FrSign)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FrState)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FrWhatsapp)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MrName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MrOcc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MrMobNo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MrMailid)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MrDistrict)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MrSign)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MrState)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MrWhatsapp)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AddressHome1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AddressHome2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AreaHome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmaiIdHome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HCreatedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Hid)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HIsDeleted)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DistrictHome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LocationHome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PincodeHome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.QuickHomeContact)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.QuickHomeWhatsapp)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StateHome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HregId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SpName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SubpName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClassName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CorseName)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RegId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ExamAttendingYear)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PreferredDay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ApplnDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AcademicYear)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AdmissionTestDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StudentName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PreferredTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.WhatsappNo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DOB)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gender)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Religion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Caste)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Community)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BloodGroup)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nationalty)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PresentAddress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Area)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Location)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.State)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.District)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Pincode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QuickContNo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Photo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QuickWhatsApp)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PgmId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClassId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CourseId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SubPgmId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsDeleted)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Pid)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PRegId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PCreatedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PIsDeleted)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FrName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FrOcc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FrMobNo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FrMailid)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FrDistrict)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FrSign)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FrState)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FrWhatsapp)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MrName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MrOcc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MrMobNo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MrMailid)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MrDistrict)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MrSign)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MrState)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MrWhatsapp)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AddressHome1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AddressHome2)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AreaHome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmaiIdHome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HCreatedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Hid)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HIsDeleted)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DistrictHome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LocationHome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PincodeHome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QuickHomeContact)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.QuickHomeWhatsapp)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StateHome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HregId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SpName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SubpName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClassName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CorseName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+@{
+    ViewBag.Title = "AllStudentRegistrationPdf";
 }
 
-</table>
+<div id="Grid" class="card card-body p-md-5 " style="margin-top:15px">
+    <div class="col-sm-12 text-center">
+        <h3 class="d-inline-block m-0 d-print-none text-center">Entrancecoach.com</h3>
+        <span class="d-inline-block m-0 d-print-none text-center">Student Registration</span>
+    </div>
+    <div class="row align-items-center mb-5">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <img src="http://entrancecoachexam.azurewebsites.net/@Model.GetAllStudentRegistrationByRegId.Photo" alt="" height="60" />
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <h5 style="font-size:18px;">About the Student</h5>
+            @*<dl class="row mt-4 align-items-center">
+                    <dt class="col-sm-7 h6 text-sm">Full Name</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.StudentName</dd>
+                    <dt class="col-sm-7 h6 text-sm">Registration No</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.RegId</dd>
+                    <dt class="col-sm-7 h6 text-sm">Application Date</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.ApplnDate</dd>
+                    <dt class="col-sm-7 h6 text-sm">Selected Class</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.ClassName</dd>
+                    <dt class="col-sm-7 h6 text-sm">Selected Programme</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.SpName</dd>
+                    <dt class="col-sm-7 h6 text-sm">Selected SubProgram</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.SubpName</dd>
+                    <dt class="col-sm-7 h6 text-sm">Selected Course</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.CorseName</dd>
+                    <dt class="col-sm-7 h6 text-sm">Academic Year</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.AcademicYear</dd>
+                    <dt class="col-sm-7 h6 text-sm">WhatsApp No</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.WhatsappNo</dd>
+                    <dt class="col-sm-7 h6 text-sm">Date of Birth</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.DOB</dd>
+                    <dt class="col-sm-7 h6 text-sm">Gender</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.Gender</dd>
+                    <dt class="col-sm-7 h6 text-sm">Religion</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.Religion</dd>
+                    <dt class="col-sm-7 h6 text-sm">Caste</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.Caste</dd>
+                    <dt class="col-sm-7 h6 text-sm">Community</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.Community</dd>
+                    <dt class="col-sm-7 h6 text-sm">Nationality</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.Nationalty</dd>
+                    <dt class="col-sm-7 h6 text-sm">Blood Group</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.BloodGroup</dd>
+                    <dt class="col-sm-7 h6 text-sm">Present address</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.PresentAddress</dd>
+                    <dt class="col-sm-7 h6 text-sm">Area</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.Area</dd>
+                    <dt class="col-sm-7 h6 text-sm">Location/PostOffice</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.Location</dd>
+                    <dt class="col-sm-7 h6 text-sm">District</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.District</dd>
+                    <dt class="col-sm-7 h6 text-sm">State</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.State</dd>
+                    <dt class="col-sm-7 h6 text-sm">Pincode</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.Pincode</dd>
+                    <dt class="col-sm-7 h6 text-sm">Quick Contact number</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.QuickContNo</dd>
+                    <dt class="col-sm-7 h6 text-sm">Quick Whatsapp No</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.QuickWhatsApp</dd>
+
+                </dl>*@
+
+            <table class="table mb-0">
+                <tbody>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Full Name</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.StudentName</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Registration No</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.RegId</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">>Application Date</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.ApplnDate</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Selected Class</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.ClassName</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Selected Programme</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.SpName</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Selected SubProgram</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.SubpName</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Selected Course</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.CorseName</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Academic Year</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.AcademicYear</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">WhatsApp No</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.WhatsappNo</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Date of Birth</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.DOB</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Gender</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.Gender</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Religion</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.Religion</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Caste</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.Caste</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Community</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.Community</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Nationality</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.Nationalty</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Blood Group</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.BloodGroup</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Present address</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.PresentAddress</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Area</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.Area</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Location/PostOffice</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.Location</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">District</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.District</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">State</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.State</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Pincode</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.Pincode</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Quick Contact number</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.QuickContNo</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Quick Whatsapp No</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.QuickWhatsApp</span>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+        <div class="col-12 col-md-6">
+            <h5 style="font-size:18px;">About the Parents</h5>
+            @*<dl class="row mt-4 align-items-center">
+                    <dt class="col-sm-7 h6 text-sm">Father Name</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.FrName</dd>
+                    <dt class="col-sm-7 h6 text-sm">Father Occupation</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.FrOcc</dd>
+                    <dt class="col-sm-7 h6 text-sm">Mobile Number</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.FrMobNo</dd>
+                    <dt class="col-sm-7 h6 text-sm">Whatsapp Number</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.FrWhatsapp</dd>
+                    <dt class="col-sm-7 h6 text-sm">Email ID</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.FrMailid</dd>
+                    <dt class="col-sm-7 h6 text-sm">District</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.FrDistrict</dd>
+                    <dt class="col-sm-7 h6 text-sm">State</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.FrState</dd>
+                    <dt class="col-sm-7 h6 text-sm">Mother Name</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.MrName</dd>
+                    <dt class="col-sm-7 h6 text-sm">Mother Occupation</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.MrOcc</dd>
+                    <dt class="col-sm-7 h6 text-sm">Mobile Number</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.MrMobNo</dd>
+                    <dt class="col-sm-7 h6 text-sm">Whatsapp Number</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.MrWhatsapp</dd>
+                    <dt class="col-sm-7 h6 text-sm">Email ID</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.MrMailid</dd>
+                    <dt class="col-sm-7 h6 text-sm">District</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.MrDistrict</dd>
+                    <dt class="col-sm-7 h6 text-sm">State</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.MrState</dd>
+                    <dt class="col-sm-7 h6 text-sm">Address 1</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.AddressHome1</dd>
+                    <dt class="col-sm-7 h6 text-sm">Address 2</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.AddressHome2</dd>
+                    <dt class="col-sm-7 h6 text-sm">Area</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.AreaHome</dd>
+                    <dt class="col-sm-7 h6 text-sm">Location / Post Office</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.LocationHome</dd>
+                    <dt class="col-sm-7 h6 text-sm">District</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.DistrictHome</dd>
+                    <dt class="col-sm-7 h6 text-sm">State</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.StateHome</dd>
+                    <dt class="col-sm-7 h6 text-sm">Pincode</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.PincodeHome</dd>
+                    <dt class="col-sm-7 h6 text-sm">Email</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.EmaiIdHome</dd>
+                    <dt class="col-sm-7 h6 text-sm">Quick Contact number</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.QuickHomeContact</dd>
+                    <dt class="col-sm-7 h6 text-sm">Quick Whatsapp No</dt>
+                    <dd class="col-sm-5 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.QuickHomeWhatsapp</dd>
+                </dl>*@
+            <table class="table mb-0">
+                <tbody>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Father Name</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.FrName</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Father Occupation</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.FrOcc</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Mobile Number</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.FrMobNo</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Whatsapp Number</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.FrWhatsapp</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Email</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.FrMailid</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">State</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.FrState</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">District</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.FrDistrict</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">MotherName</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.MrName</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Mother Occupation</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.MrOcc</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Mobile Number</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.MrMobNo</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Whatsapp Number</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.MrWhatsapp</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Email</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.MrMailid</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">State</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.MrState</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">District</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.MrDistrict</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Address 1</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.AddressHome1</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Address 2</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.AddressHome2</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Area</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.AreaHome</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Location/PostOffice</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.LocationHome</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">State</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.StateHome</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">District</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.DistrictHome</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Pincode</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.PincodeHome</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Email</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.EmaiIdHome</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Quick Contact number</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.QuickHomeContact</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Quick Whatsapp No</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllStudentRegistrationByRegId.QuickHomeWhatsapp</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <h5 style="font-size:18px;"> Academic Details</h5>
+            <!-- Table -->
+            <div class="table-responsive">
+                <table class="table mb-0">
+                    <thead>
+                        <tr>
+                            <th class="px-0 bg-transparent border-top-0">Class</th>
+                            <th class="px-0 bg-transparent border-top-0">Pass Year</th>
+                            <th class="px-0 bg-transparent border-top-0 text-right">School Address</th>
+                            <th class="px-0 bg-transparent border-top-0 text-right">Register No</th>
+                            <th class="px-0 bg-transparent border-top-0 text-right">Board</th>
+                            <th class="px-0 bg-transparent border-top-0 text-right">Physics Mark</th>
+                            <th class="px-0 bg-transparent border-top-0 text-right">Chemistry Mark</th>
+                            <th class="px-0 bg-transparent border-top-0 text-right">Biology Mark</th>
+                            <th class="px-0 bg-transparent border-top-0 text-right">Mathematics Mark</th>
+                            <th class="px-0 bg-transparent border-top-0 text-right">Percentage of Mark</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Student_AcademicPerformancebyRegid)
+                        {
+                        <tr>
+                            <td class="px-0">
+                                <span class="h6 text-sm">@item.Class</span>
+                            </td>
+                            <td class="px-0">
+                                <span class="h6 text-sm">@item.PassYear</span>
+                            </td>
+                            <td class="px-0 text-right">
+                                <span class="h6 text-sm">@item.SchoolAddress</span>
+                            </td>
+                            <td class="px-0 text-right">
+                                <span class="h6 text-sm">@item.RegNo</span>
+                            </td>
+                            <td class="px-0 text-right">
+                                <span class="h6 text-sm">@item.Board</span>
+                            </td>
+                            <td class="px-0 text-right">
+                                <span class="h6 text-sm">@item.PhyMark</span>
+                            </td>
+                            <td class="px-0 text-right">
+                                <span class="h6 text-sm">@item.ChemMark</span>
+                            </td>
+                            <td class="px-0 text-right">
+                                <span class="h6 text-sm">@item.BiologyMark</span>
+                            </td>
+                            <td class="px-0 text-right">
+                                <span class="h6 text-sm">@item.MathsMark</span>
+                            </td>
+                            <td class="px-0 text-right">
+                                <span class="h6 text-sm">@item.PercOfMark</span>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <h5 style="font-size:18px;">Previous Entrance Details</h5>
+            <!-- Table Previous Entrance Details -->
+            <div class="table-responsive">
+                <table class="table mb-0">
+                    <thead>
+                        <tr>
+                            <th class="px-0 bg-transparent border-top-0">Previous Entrance Exam</th>
+                            <th class="px-0 bg-transparent border-top-0">Roll No</th>
+                            <th class="px-0 bg-transparent border-top-0 text-right">Attempted Year</th>
+                            <th class="px-0 bg-transparent border-top-0 text-right">Mark</th>
+                            <th class="px-0 bg-transparent border-top-0 text-right">Rank</th>
+                            <th class="px-0 bg-transparent border-top-0 text-right">No of Attempts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Student_PreviousEntrancebyRegid)
+                        {
+                        <tr>
+                            <td class="px-0">
+                                <span class="h6 text-sm">@item.PrevEntranceExamName</span>
+                            </td>
+                            <td class="px-0">
+                                <span class="h6 text-sm">@item.RollNo</span>
+                            </td>
+                            <td class="px-0 text-right">
+                                <span class="h6 text-sm">@item.AttemptedYear</span>
+                            </td>
+                            <td class="px-0 text-right">
+                                <span class="h6 text-sm">@item.Mark</span>
+                            </td>
+                            <td class="px-0 text-right">
+                                <span class="h6 text-sm">@item.Rank</span>
+                            </td>
+                            <td class="px-0 text-right">
+                                <span class="h6 text-sm">@item.NoOfAttempts</span>
+                            </td>
+
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            @*<div class="card my-5 bg-secondary">
+                    <div class="card-body">
+                        <div class="row ">
+                            <div class="col-md-6 order-md-1 align-items-center">
+                                <a href="#" class="btn btn-sm btn-link text-dark font-weight-bold">Back</a>
+                                <button type="button" class="btn btn-sm btn-primary" id="btnPrint">Print</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 text-sm text-right">
+            <img src="http://entrancecoachexam.azurewebsites.net/@Model.GetAllStudentRegistrationByRegId.FrSign" alt="" height="30" />
+        </div>
+        <div class="col-sm-6 text-sm text-right">
+            <img src="http://entrancecoachexam.azurewebsites.net/@Model.GetAllStudentRegistrationByRegId.MrSign" alt="" height="30" />
+        </div>
+    </div>
+    @*<input type="button" value="click" onclick="printDiv();" />*@
+</div>
+<input type="button" value="Print" onclick="window.print();" />
+
+
+
+@section Scripts {
+    @*<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                $("#btnSubmit").click(function () {
+                    $("input[name='GridHtml']").val($("#Grid").html());
+                    var data = $('#GridHtml').val();
+                    console.log(data)
+                });
+            });
+        </script>
+
+        <script>
+            function printDiv() {
+                var divContents = document.getElementById("Grid").innerHTML;
+                var a = window.open('', '', 'height=500, width=500');
+                a.document.write('<html>');
+                a.document.write('<body > <h1>Div contents are <br>');
+                a.document.write(divContents);
+                a.document.write('</body></html>');
+                a.document.close();
+                a.print();
+            }
+        </script>*@
+    @*<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btnPrint").click(function () {
+                var contents = $("#Grid").html();
+                var frame1 = $('<iframe />');
+                frame1[0].name = "frame1";
+                frame1.css({ "position": "absolute", "top": "-1000000px" });
+                $("body").append(frame1);
+                var frameDoc = frame1[0].contentWindow ? frame1[0].contentWindow : frame1[0].contentDocument.document ? frame1[0].contentDocument.document : frame1[0].contentDocument;
+                frameDoc.document.open();
+                //Create a new HTML document.
+                frameDoc.document.write('<html><head><title>DIV Contents</title>');
+                frameDoc.document.write('</head><body>');
+                //Append the external CSS file.
+                frameDoc.document.write('<link href="style.css" rel="stylesheet" type="text/css" />');
+                //Append the DIV contents.
+                frameDoc.document.write(contents);
+                frameDoc.document.write('</body></html>');
+                frameDoc.document.close();
+                setTimeout(function () {
+                    window.frames["frame1"].focus();
+                    window.frames["frame1"].print();
+                    frame1.remove();
+                }, 500);
+            });
+        });
+    </script>*@
+}

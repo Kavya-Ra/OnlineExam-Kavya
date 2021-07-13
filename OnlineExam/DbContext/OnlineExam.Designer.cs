@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Microtech\source\repos\OnlineExam\OnlineExam\DbContext\OnlineExam.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\suita\source\repos\OnlineExam-Kavya\OnlineExam\DbContext\OnlineExam.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

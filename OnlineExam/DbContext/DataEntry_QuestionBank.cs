@@ -36,5 +36,6 @@ namespace OnlineExam.DbContext
         public int PgmId { get; set; }
         public int CourseId { get; set; }
         public int SubPgmId { get; set; }
+        public string Photo { get; set; }
     }
 }

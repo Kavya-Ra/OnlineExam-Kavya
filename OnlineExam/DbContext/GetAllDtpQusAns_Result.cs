@@ -10,9 +10,8 @@
 namespace OnlineExam.DbContext
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Teachers_QuestionBank
+    public partial class GetAllDtpQusAns_Result
     {
         public int Id { get; set; }
         public string Questions { get; set; }
@@ -36,7 +35,11 @@ namespace OnlineExam.DbContext
         public int PgmId { get; set; }
         public int CourseId { get; set; }
         public int SubPgmId { get; set; }
-        public int TeacherId { get; set; }
         public string Photo { get; set; }
+        public string PName { get; set; }
+        public string SubpName { get; set; }
+        public string SubjectName { get; set; }
+        public string CourseName { get; set; }
+        public string ChapterName { get; set; }
     }
 }
