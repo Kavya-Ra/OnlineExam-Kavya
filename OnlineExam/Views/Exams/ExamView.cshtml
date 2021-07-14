@@ -1,0 +1,99 @@
+﻿@model OnlineExam.ViewModel.ExamViewModel
+
+<div>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <h5 style="font-size:18px;">Exam Details</h5>
+            <table class="table mb-0">
+                <tbody>
+                    <tr>
+                        <td class="px-0">
+                            <span class="h6 text-sm">Exam Name</span>
+                        </td>
+                        <td class="px-0">
+                            <span class="h6 text-sm text-right">@Model.GetAllExam.Name</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-12">
+                <h5 style="font-size:18px;">Question List</h5>
+                <!-- Table -->
+                <div class="table-responsive">
+                    <table class="table mb-0">
+                        <thead>
+                            <tr>
+                                <th class="px-0 bg-transparent border-top-0">Questions</th>
+                                <th class="px-0 bg-transparent border-top-0">Question Year</th>
+                                <th class="px-0 bg-transparent border-top-0 text-right">Option 1</th>
+                                <th class="px-0 bg-transparent border-top-0 text-right">Option 2</th>
+                                <th class="px-0 bg-transparent border-top-0 text-right">Option 3</th>
+                                <th class="px-0 bg-transparent border-top-0 text-right">Option 4</th>
+                                <th class="px-0 bg-transparent border-top-0 text-right">Correct Answer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{int i = 1; }
+
+
+                            @foreach (var item in Model.getAllQus)
+                            {
+                                int count = i++;
+                                var id = "qsasId" + count;
+                                var name = "qsasName" + count;
+                                var id1 = "curAnsId" + count;
+                                var name1 = "curAnsName" + count;
+                                var id2 = "selAnsId" + count;
+                                var name2 = "selAnsName" + count;
+                                var id3 = "notVisId" + count;
+                                var name3 = "notVisName" + count;
+                                var id4 = "markRevId" + count;
+                                var name4 = "markRevName" + count;
+                                var id5 = "ansMarkrevId" + count;
+                                var name5 = "ansMarkrevName" + count;
+
+                            <tr>
+                                <td class="px-0">
+                                    @if (item.Photo != null)
+                                    {
+                                        <img src="http://entrancecoachexam.azurewebsites.net/@item.Photo" alt="" height="80" />
+                                    }
+                                    else
+                                    {
+                                        <span class="h6 text-sm">@item.Questions</span>
+                                    }
+
+                                </td>
+                                <td>
+                                    <input id="@id" name="@name" value="@item.Id" />
+                                </td>
+                                <td>
+                                    <input id="@id1" name="@name1" value="@item.CorrectAns" />
+                                </td>
+                                <td>
+                                    <input id="@id2" name="@name2" value="@item.CorrectAns" />
+                                </td>
+                                <td>
+                                    <input id="@id3" name="@name3" value="0" />
+                                </td>
+                                <td>
+                                    <input id="@id4" name="@name4" value="@item.Mark" />
+                                </td>
+                                <td>
+                                    <input id="@id5" name="@name5" value="@item.Mark" />
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>

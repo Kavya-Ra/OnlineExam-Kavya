@@ -151,6 +151,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DataEntry_RegistrationController.cs" />
+    <Compile Include="Controllers\ExamsController.cs" />
     <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Student_AcademicPerformanceController.cs" />
@@ -158,6 +159,9 @@
     <Compile Include="Controllers\Teachers_RegistrationController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DbContext\AllStudentRegistrationDetails_Result.cs">
+      <DependentUpon>OnlineExam.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\AttendExam.cs">
       <DependentUpon>OnlineExam.tt</DependentUpon>
     </Compile>
     <Compile Include="DbContext\Chapter.cs">
@@ -176,6 +180,9 @@
       <DependentUpon>OnlineExam.tt</DependentUpon>
     </Compile>
     <Compile Include="DbContext\Exam.cs">
+      <DependentUpon>OnlineExam.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\ExamResult.cs">
       <DependentUpon>OnlineExam.tt</DependentUpon>
     </Compile>
     <Compile Include="DbContext\Exam_QnTable.cs">
@@ -211,10 +218,10 @@
     <Compile Include="DbContext\GetAllTeacherQusAns_Result.cs">
       <DependentUpon>OnlineExam.tt</DependentUpon>
     </Compile>
-    <Compile Include="DbContext\GetExamByUserId_Result.cs">
+    <Compile Include="DbContext\GetExamByTeacherId_Result.cs">
       <DependentUpon>OnlineExam.tt</DependentUpon>
     </Compile>
-    <Compile Include="DbContext\GetExamIdWiseQuestions_Result.cs">
+    <Compile Include="DbContext\GetExamByUserId_Result.cs">
       <DependentUpon>OnlineExam.tt</DependentUpon>
     </Compile>
     <Compile Include="DbContext\GetStudentGroupbyGroupId_Result.cs">
@@ -299,6 +306,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\DtpQAViewModel.cs" />
     <Compile Include="ViewModel\DtpViewModel.cs" />
+    <Compile Include="ViewModel\ExamViewModel.cs" />
     <Compile Include="ViewModel\GroupViewModel.cs" />
     <Compile Include="ViewModel\StudentRegPdfViewModel.cs" />
     <Compile Include="ViewModel\StudentRegViewModel.cs" />
@@ -400,6 +408,12 @@
     <Content Include="Views\Student_Registration\Index.cshtml" />
     <Content Include="Views\Student_Registration\AllStudentRegistration.cshtml" />
     <Content Include="Views\Teachers_Registration\TeacherView.cshtml" />
+    <Content Include="Views\Exams\Create.cshtml" />
+    <Content Include="Views\Exams\Delete.cshtml" />
+    <Content Include="Views\Exams\Details.cshtml" />
+    <Content Include="Views\Exams\Edit.cshtml" />
+    <Content Include="Views\Exams\Index.cshtml" />
+    <Content Include="Views\Exams\ExamView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

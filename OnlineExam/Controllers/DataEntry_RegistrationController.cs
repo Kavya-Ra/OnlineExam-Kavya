@@ -252,14 +252,14 @@ namespace OnlineExam.Controllers
                     CorrectAns = data.CorrectAns,
                     Mark = data.Mark,
                     PgmId = data.PgmId,
-                    SubPgmId = data.SubPgmId,
+                    SubPgmId = data.ClassId,
                     CourseId = data.CourseId,
                     SubjectId = data.SubjectId,
                     ChapterId = data.ChapterId
             };
                 var pro = new SelectList(db.Programmes.Where(p => p.IsDeleted == 0), "Id", "Name",data.PgmId);
                 ViewBag.PgmId = pro;
-                var sub = new SelectList(db.SubPrograms.Where(p => p.IsDeleted == 0), "Id", "Name", data.SubPgmId);
+                var sub = new SelectList(db.SubPrograms.Where(p => p.IsDeleted == 0), "Id", "Name", data.ClassId);
                 ViewBag.SubPgmId = sub;
                 var cou = new SelectList(db.Courses.Where(c => c.IsDeleted == 0), "Id", "Name", data.CourseId);
                 ViewBag.CourseId = cou;
@@ -309,7 +309,7 @@ namespace OnlineExam.Controllers
                         data.ModifiedDateTime = DateTime.Now;
                         data.ModifiedBy = 1;
                         data.PgmId = dtpQAView.PgmId;
-                        data.SubPgmId = dtpQAView.SubPgmId;
+                        data.ClassId = dtpQAView.SubPgmId;
                         data.CourseId = dtpQAView.CourseId;
                         data.SubjectId = dtpQAView.SubjectId;
                         data.ChapterId = dtpQAView.ChapterId;
@@ -337,7 +337,7 @@ namespace OnlineExam.Controllers
                 data.ModifiedDateTime = DateTime.Now;
                 data.DeletedDateTime = DateTime.Now;
                 data.PgmId = dtpQAView.PgmId;
-                data.SubPgmId = dtpQAView.SubPgmId;
+                data.ClassId = dtpQAView.SubPgmId;
                 data.CourseId = dtpQAView.CourseId;
                 data.SubjectId = dtpQAView.SubjectId;
                 data.ChapterId = dtpQAView.ChapterId;
