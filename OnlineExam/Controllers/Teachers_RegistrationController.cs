@@ -239,6 +239,11 @@ namespace OnlineExam.Controllers
             return View();
         }
 
+        public ActionResult TeacherView(int? id)
+        {
+            Teachers_Registration teachers = db.Teachers_Registration.Find(id);
+            return View(teachers);
+        }
 
     }
 }

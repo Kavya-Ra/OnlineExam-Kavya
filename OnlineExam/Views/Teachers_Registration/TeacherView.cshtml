@@ -1,0 +1,165 @@
+﻿@model OnlineExam.DbContext.Teachers_Registration
+
+@{
+    ViewBag.Title = "TeacherRegistrationPdf";
+}
+
+<div id="Grid" class="card card-body p-md-5 " style="margin-top:15px">
+    <div class="col-sm-12 text-center">
+        <h3 class="d-inline-block m-0 d-print-none text-center">Entrancecoach.com</h3>
+        <span class="d-inline-block m-0 d-print-none text-center">Teacher Registration</span>
+    </div>
+
+    <div class="row">
+    <div class="col-12 col-md-6">
+        <h5 style="font-size:18px;">General Information</h5>
+        <table class="table mb-0">
+            <tbody>
+                <tr>
+                    <td class="px-0">
+                        <span class="h6 text-sm">Full Name</span>
+                    </td>
+                    <td class="px-0">
+                        <span class="h6 text-sm text-right">@Model.FirstName @Model.MiddleName @Model.LastName</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-0">
+                        <span class="h6 text-sm">Address</span>
+                    </td>
+                    <td class="px-0">
+                        <span class="h6 text-sm text-right">@Model.Address</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-0">
+                        <span class="h6 text-sm">Location</span>
+                    </td>
+                    <td class="px-0">
+                        <span class="h6 text-sm text-right">@Model.Location</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-0">
+                        <span class="h6 text-sm">Street</span>
+                    </td>
+                    <td class="px-0">
+                        <span class="h6 text-sm text-right">@Model.Street</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-0">
+                        <span class="h6 text-sm">Country</span>
+                    </td>
+                    <td class="px-0">
+                        <span class="h6 text-sm text-right">@Model.Country</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-0">
+                        <span class="h6 text-sm">State</span>
+                    </td>
+                    <td class="px-0">
+                        <span class="h6 text-sm text-right">@Model.State</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-0">
+                        <span class="h6 text-sm">District</span>
+                    </td>
+                    <td class="px-0">
+                        <span class="h6 text-sm text-right">@Model.District</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-0">
+                        <span class="h6 text-sm">Whatsapp Number</span>
+                    </td>
+                    <td class="px-0">
+                        <span class="h6 text-sm text-right">@Model.WhatsApp</span>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+    <div class="col-12 col-md-6">
+        <h5 style="font-size:18px;">Teaching information</h5>
+
+        <table class="table mb-0">
+            <tbody>
+                <tr>
+                    <td class="px-0">
+                        <span class="h6 text-sm">Primary Subject</span>
+                    </td>
+                    <td class="px-0">
+                        <span class="h6 text-sm text-right">@Model.PrimarySubject</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-0">
+                        <span class="h6 text-sm">SecondarySubject</span>
+                    </td>
+                    <td class="px-0">
+                        <span class="h6 text-sm text-right">@Model.SecondarySubject</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-0">
+                        <span class="h6 text-sm">Student Grades</span>
+                    </td>
+                    <td class="px-0">
+                        <span class="h6 text-sm text-right">@Model.StudentGrade</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-0">
+                        <span class="h6 text-sm">Weekdays</span>
+                    </td>
+                    <td class="px-0">
+                        <span class="h6 text-sm text-right">@Model.Weekdays Hours</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-0">
+                        <span class="h6 text-sm">Weekends</span>
+                    </td>
+                    <td class="px-0">
+                        <span class="h6 text-sm text-right">@Model.Weekends Hours</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-0">
+                        <span class="h6 text-sm">Available Timings</span>
+                    </td>
+                    <td class="px-0">
+                        <span class="h6 text-sm text-right">@Model.Time</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-0">
+                        <span class="h6 text-sm">Post Office</span>
+                    </td>
+                    <td class="px-0">
+                        <span class="h6 text-sm text-right">@Model.PO</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-0">
+                        <span class="h6 text-sm">Email</span>
+                    </td>
+                    <td class="px-0">
+                        <span class="h6 text-sm text-right">@Model.Email</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+   </div> 
+</div>
+<input type="button" value="Print" onclick="window.print();" />
+
+
+
+

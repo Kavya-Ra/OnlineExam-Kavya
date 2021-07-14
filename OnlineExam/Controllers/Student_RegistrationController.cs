@@ -132,7 +132,7 @@ namespace OnlineExam.Controllers
         public ActionResult AllStudentRegistration(string RegId)
         {
 
-            var data = db.GetAllStudentRegistrationByRegId(RegId).FirstOrDefault();
+              var data = db.GetAllStudentRegistrationByRegId(RegId).FirstOrDefault();
                var data1 = db.Student_AcademicPerformancebyRegid(RegId).ToList();
                var data2 = db.Student_PreviousEntrancebyRegid(RegId).ToList();
 
