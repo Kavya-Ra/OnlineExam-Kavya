@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using OnlineExam.DbContext;
+using OnlineExam.ViewModel;
 
 namespace OnlineExam.Controllers
 {
@@ -183,5 +184,36 @@ namespace OnlineExam.Controllers
             return Ok(materializedUser);
            
         }
+
+        [Route("api/Exam/Result")]
+        [ResponseType(typeof(ExamResult))]
+        public IHttpActionResult Result(ExamViewModel examView)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            foreach (var item in examView.examResults)
+            {
+                ExamResult exam = new ExamResult()
+                {
+                    ExamId = item.ExamId,
+                    StudentId = item.StudentId,
+                    QuestionId = item.QuestionId,
+                    SelectedAnswer = item.SelectedAnswer,
+                    CorrectAnswer = item.CorrectAnswer,
+                    NotVisited = item.NotVisited,
+                    MarkForReview = item.MarkForReview,
+                    AnsMarkForReview = item.AnsMarkForReview
+                };
+                db.ExamResults.Add(exam);
+            }
+           
+            db.SaveChanges();
+            return Ok(examView);
+        }
+
+
     }
 }

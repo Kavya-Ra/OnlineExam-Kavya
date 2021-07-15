@@ -12,5 +12,7 @@ namespace OnlineExam.ViewModel
         public GetAllExamById_Result GetAllExam { get; set; }
 
         public List<GetAllQusByExamId_Result> getAllQus { get; set; }
+
+        public List<ExamResult> examResults { get; set; }
     }
 }

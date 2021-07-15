@@ -19,81 +19,134 @@
 
         </div>
     </div>
-        <div class="row">
-            <div class="col-12">
-                <h5 style="font-size:18px;">Question List</h5>
-                <!-- Table -->
-                <div class="table-responsive">
-                    <table class="table mb-0">
-                        <thead>
-                            <tr>
-                                <th class="px-0 bg-transparent border-top-0">Questions</th>
-                                <th class="px-0 bg-transparent border-top-0">Question Year</th>
-                                <th class="px-0 bg-transparent border-top-0 text-right">Option 1</th>
-                                <th class="px-0 bg-transparent border-top-0 text-right">Option 2</th>
-                                <th class="px-0 bg-transparent border-top-0 text-right">Option 3</th>
-                                <th class="px-0 bg-transparent border-top-0 text-right">Option 4</th>
-                                <th class="px-0 bg-transparent border-top-0 text-right">Correct Answer</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @{int i = 1; }
+    <div class="row">
+        <div class="col-12">
+            <h5 style="font-size:18px;">Question List</h5>
+            <!-- Table -->
+            <div class="table-responsive">
+                <table  id="tblDetails" class="table mb-0">
+                    <thead>
+                        <tr>
+                            <th class="px-0 bg-transparent border-top-0">Questions</th>
+                            <th class="px-0 bg-transparent border-top-0">Question Year</th>
+                            <th class="px-0 bg-transparent border-top-0 text-right">Option 1</th>
+                            <th class="px-0 bg-transparent border-top-0 text-right">Option 2</th>
+                            <th class="px-0 bg-transparent border-top-0 text-right">Option 3</th>
+                            <th class="px-0 bg-transparent border-top-0 text-right">Option 4</th>
+                            <th class="px-0 bg-transparent border-top-0 text-right">Correct Answer</th>
+                            <th class="px-0 bg-transparent border-top-0 text-right">StudentId</th>
+                            <th class="px-0 bg-transparent border-top-0 text-right">ExamId</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{int i = 1; }
 
 
-                            @foreach (var item in Model.getAllQus)
-                            {
-                                int count = i++;
-                                var id = "qsasId" + count;
-                                var name = "qsasName" + count;
-                                var id1 = "curAnsId" + count;
-                                var name1 = "curAnsName" + count;
-                                var id2 = "selAnsId" + count;
-                                var name2 = "selAnsName" + count;
-                                var id3 = "notVisId" + count;
-                                var name3 = "notVisName" + count;
-                                var id4 = "markRevId" + count;
-                                var name4 = "markRevName" + count;
-                                var id5 = "ansMarkrevId" + count;
-                                var name5 = "ansMarkrevName" + count;
+                        @foreach (var item in Model.getAllQus)
+                        {
+                            int count = i++;
+                            var id = "qsasId" + count;
+                            var name = "qsasName" + count;
+                            var id1 = "curAnsId" + count;
+                            var name1 = "curAnsName" + count;
+                            var id2 = "selAnsId" + count;
+                            var name2 = "selAnsName" + count;
+                            var id3 = "notVisId" + count;
+                            var name3 = "notVisName" + count;
+                            var id4 = "markRevId" + count;
+                            var name4 = "markRevName" + count;
+                            var id5 = "ansMarkrevId" + count;
+                            var name5 = "ansMarkrevName" + count;
+                            var id6 = "studentId" + count;
+                            var name6 = "studentName" + count;
+                            var id7 = "ExamId" + count;
+                            var name7 = "ExamName" + count;
 
-                            <tr>
-                                <td class="px-0">
-                                    @if (item.Photo != null)
-                                    {
-                                        <img src="http://entrancecoachexam.azurewebsites.net/@item.Photo" alt="" height="80" />
-                                    }
-                                    else
-                                    {
-                                        <span class="h6 text-sm">@item.Questions</span>
-                                    }
+                        <tr>
+                            <td class="px-0">
+                                @if (item.Photo != null)
+                                {
+                                    <img src="http://entrancecoachexam.azurewebsites.net/@item.Photo" alt="" height="80" />
+                                }
+                                else
+                                {
+                                    <span class="h6 text-sm">@item.Questions</span>
+                                }
 
-                                </td>
-                                <td>
-                                    <input id="@id" name="@name" value="@item.Id" />
-                                </td>
-                                <td>
-                                    <input id="@id1" name="@name1" value="@item.CorrectAns" />
-                                </td>
-                                <td>
-                                    <input id="@id2" name="@name2" value="@item.CorrectAns" />
-                                </td>
-                                <td>
-                                    <input id="@id3" name="@name3" value="0" />
-                                </td>
-                                <td>
-                                    <input id="@id4" name="@name4" value="@item.Mark" />
-                                </td>
-                                <td>
-                                    <input id="@id5" name="@name5" value="@item.Mark" />
-                                </td>
-                            </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
+                            </td>
+                            <td>
+                                <input type="hidden" id="@id" name="@name" value="@item.Id" />
+                            </td>
+                            <td>
+                                <input type="hidden" id="@id1" name="@name1" value="@item.CorrectAns" />
+                            </td>
+                            <td>
+                                <input type="hidden" id="@id2" name="@name2" value="@item.CorrectAns" />
+                            </td>
+                            <td>
+                                <input type="hidden" id="@id3" name="@name3" value="0" />
+                            </td>
+                            <td>
+                                <input type="hidden" id="@id4" name="@name4" value="@item.Mark" />
+                            </td>
+                            <td>
+                                <input type="hidden" id="@id5" name="@name5" value="@item.Mark" />
+                            </td>
+                            <td>
+                                <input type="hidden" id="@id6" name="@name6" value="2" />
+                            </td>
+                            <td>
+                                <input type="hidden" id="@id7" name="@name7" value="@item.ExamId" />
+                            </td>
+
+                        </tr>
+                        }
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-    <p>
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+</div>
+<input id="btnSave" type="button" value="Save" />
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+@section Scripts {
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#btnSave').on('click', function () {
+                var datarr = {};
+                var data1 = new Array();
+                $("#tblDetails TBODY TR").each(function () {
+                    var row = $(this);
+                    var data2 = {};
+                    data2.QuestionId = row.find("TD input[type='hidden']").eq(1).val();
+                    data2.SelectedAnswer = row.find("TD input[type='hidden']").eq(2).val();
+                    data2.CorrectAnswer = row.find("TD input[type='hidden']").eq(3).val();
+                    data2.NotVisited = row.find("TD input[type='hidden']").eq(4).val();
+                    data2.MarkForReview = row.find("TD input[type='hidden']").eq(5).val();
+                    data2.AnsMarkForReview = row.find("TD input[type='hidden']").eq(6).val();
+                    data2.StudentId = row.find("TD input[type='hidden']").eq(7).val();
+                    data2.ExamId = row.find("TD input[type='hidden']").eq(8).val();
+                    data1.push(data2);
+                });
+
+
+                datarr.examResults = data1;
+
+                //Send the JSON array to Controller using AJAX.
+                $.ajax({
+                    type: "POST",
+                    url: "../../api/Exam/Result",
+                    data: JSON.stringify(datarr),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                    }
+                });
+            });
+        });
+    </script>
+}

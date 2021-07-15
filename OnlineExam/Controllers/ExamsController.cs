@@ -140,5 +140,12 @@ namespace OnlineExam.Controllers
             return View(student);
 
         }
+
+        [HttpPost]
+        public JsonResult Save(ExamViewModel examView)
+        {
+
+                return null;
+        }
     }
 }
